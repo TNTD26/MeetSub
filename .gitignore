@@ -10,6 +10,8 @@ env/
 # ---------------------------------------------------------------
 build/
 dist/
+dist-slim/
+build-slim/
 *.py[cod]
 __pycache__/
 *.egg-info/

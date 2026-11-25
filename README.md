@@ -177,9 +177,22 @@ Qwen 可以把「会议背景 + 术语表 + 最近两句」一起放进提示词
 
 ## 安装
 
-### 便携版（推荐）
+### 方式一：下载发布包（推荐）
 
-在 `dist\MeetSub\` 中看到 `MeetSub.exe` 时，直接双击即可——该目录已包含运行库与离线模型，
+到 [Releases](https://github.com/TNTD26/MeetSub/releases) 下载 `MeetSub-1.1.0-win64-slim.zip`，
+解压后双击 `MeetSub.exe` 即可，不需要安装 Python。
+
+发布包**不含模型权重**（约 122 MB，压过 320 MB 的程序本体）。首次启动会提示「准备离线模型」，
+点一下就在应用内下载 `small.en` + Qwen2.5-1.5B（约 1.9 GB，支持断点续传与 hf-mirror 镜像切源），
+下载一次之后即可完全离线使用。
+
+> 想要「解压即离线」的完整包（内置 4 个模型，约 2.4 GB）就本地构建：
+> `powershell -ExecutionPolicy Bypass -File .\scripts\build.ps1`，产物在 `dist\MeetSub\`。
+> 这个体积超出 GitHub 单个发布文件 2 GB 的上限，所以没有直接发布。
+
+### 方式二：已构建的本地便携版
+
+在 `dist\MeetSub\` 中看到 `MeetSub.exe` 时，直接双击即可——该目录已经包含运行库和离线模型，
 不需要安装 Python：
 
 ```
@@ -191,7 +204,7 @@ dist\MeetSub\MeetSub.exe
 > 便携版未做商业代码签名，SmartScreen 首次运行可能提示「未知发布者」。确认来源可信后
 > 选「更多信息 → 仍要运行」。
 
-### 从源码运行
+### 方式三：从源码运行
 
 ```powershell
 git clone https://github.com/TNTD26/MeetSub.git
